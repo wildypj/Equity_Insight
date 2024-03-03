@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(stock-bg.avif) no-repeat center center/ cover;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+#container {
+    width: 400px;
+    padding: 20px;
+    background: linear-gradient(45deg, #00bcd4, #009688);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    color: #00bcd4;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+#output {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #00bcd4;
+    position: relative; /* Ensure proper positioning of child elements */
+}
+
+#output h3 {
+    font-family: 'Roboto', sans-serif; /* Use a professional font */
+    color: #333; /* Dark color for professional look */
+    margin-bottom: 10px;
+    position: relative; /* Position relative for the decorative character */
+    display: inline-block; /* Ensure that the h3 does not span the full width */
+}
+
+#output p {
+    color: #555; /* Slightly lighter color for better contrast */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin-top: 10px; /* Adjusted margin for better spacing */
+}
+
+#output::before {
+    content: '\1F4C8';
+    font-size: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #00bcd4;
+    position: absolute; /* Position the decorative element absolutely */
+    top: 50%; /* Center vertically */
+    left: calc(70% + 10px); /* Adjusted position to be to the right of h3 */
+    transform: translateY(-50%); /* Center vertically */
+}
+
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+

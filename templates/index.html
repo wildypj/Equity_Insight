@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div id="container">
+    <h2>Stock Prediction</h2>
+    <input type="text" id="tickerInput" placeholder="Enter Stock Ticker (e.g., AAPL)">
+    <button onclick="predictStock()">Predict</button>
+    <div id="output"></div>
+</div>
+
+<script>
+    function predictStock() {
+        var ticker = document.getElementById("tickerInput").value;
+        fetchData(ticker);
+    }
+
+    // Function to fetch data
+    function fetchData(ticker) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/predict?ticker=" + ticker, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = "<h3>Prediction for " + ticker + ":</h3><p>" + response.prediction + "</p>";
+                outputDiv.style.opacity = "1"; // Adding this line to make output visible with animation
+            }
+        };
+        xhr.send();
+    }
+
+    // Function to handle key press event
+    document.getElementById("tickerInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent default form submission
+            predictStock(); // Call predictStock function when Enter key is pressed
+        }
+    });
+</script>
+</body>
+</html>
+
